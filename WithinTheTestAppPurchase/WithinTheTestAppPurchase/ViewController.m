@@ -73,7 +73,7 @@
             case SKPaymentTransactionStatePurchased: //交易完成
                 [self purchaseOfValidation];// 发送到苹果服务器验证凭证
 
-                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
+                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];//移除购买队列
                 break;
             case SKPaymentTransactionStatePurchasing: //商品添加进列表
                 
@@ -81,11 +81,11 @@
             case SKPaymentTransactionStateRestored: //购买过
                 [self purchaseOfValidation];// 发送到苹果服务器验证凭证
                 
-                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
+                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];//移除购买队列
                 break;
             case SKPaymentTransactionStateFailed: //交易失败
                 
-                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
+                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];//移除购买队列
                 NSLog(@"购买失败");
                 break;
                 
